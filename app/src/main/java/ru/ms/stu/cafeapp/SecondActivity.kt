@@ -23,7 +23,7 @@ class SecondActivity : AppCompatActivity() {
 
         setupUsername()
         binding.radioTea.isChecked = true
-        binding.order.setOnClickListener{
+        binding.order.setOnClickListener {
             onOrder()
             intent = ScrollActivity.newIntent(this@SecondActivity, order)
             startActivity(intent)
@@ -52,25 +52,28 @@ class SecondActivity : AppCompatActivity() {
             lemon.visibility = View.INVISIBLE
             spinnerCoffee.visibility = View.VISIBLE
             spinnerTea.visibility = View.INVISIBLE
-            lemon.isChecked=false
+            lemon.isChecked = false
 
         }
     }
 
     private fun onOrder() {
-        val adv =  arrayListOf<String>()
-        var drinkType:String=""
+        val adv = arrayListOf<String>()
+        var drinkType: String = ""
+        var drink: String = ""
         with(binding) {
             if (sugar.isChecked) adv.add(sugar.text.toString())
             if (milk.isChecked) adv.add(milk.text.toString())
             if (lemon.isChecked) adv.add(lemon.text.toString())
-            if(radioTea.isChecked) {
-                drinkType=spinnerTea.selectedItem.toString()
+            if (radioTea.isChecked) {
+                drinkType = spinnerTea.selectedItem.toString()
+                drink = radioTea.text.toString()
             } else if (radioCoffee.isChecked) {
-                drinkType=spinnerCoffee.selectedItem.toString()
+                drinkType = spinnerCoffee.selectedItem.toString()
+                drink = radioCoffee.text.toString()
             }
         }
-        order = Order(state.name,adv,drinkType)
+        order = Order(state.name, adv, drinkType, drink)
     }
 
     private fun onUserChooseTea() {
@@ -83,12 +86,20 @@ class SecondActivity : AppCompatActivity() {
 
         }
     }
+
     @Parcelize
     class Order(
-        val username:String,
-        val additives:ArrayList<String>,
-        val drink:String
-    ):Parcelable
+        val username: String,
+        val additives: ArrayList<String>,
+        val tod: String,
+        val drink: String
+
+    ) : Parcelable
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 
     companion object {
         @JvmStatic

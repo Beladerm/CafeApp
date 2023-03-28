@@ -15,6 +15,14 @@
     <string name="choose_drink_type">Choose drink type</string>
     <string name="supply">Supply</string>
     <string name="error_fields_empty">Fill all input fields</string>
+    <string name="username_scroll">Username:</string>
+    <string name="drink">Drink:</string>
+    <string name="type_of_drink">Type of drink:</string>
+    <string name="additives">Additives:</string>
+    <string name="u">u</string>
+    <string name="d">d</string>
+    <string name="td">td</string>
+    <string name="a">a</string>
 
     <array name="typesTea">
         <item>Green</item>
