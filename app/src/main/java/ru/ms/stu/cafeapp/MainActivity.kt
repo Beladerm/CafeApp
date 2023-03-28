@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             state = savedInstanceState?.getParcelable(KEY_STATE) ?: State(
                 name = username.text.toString().trim(),
-                pass =  password.text.toString().trim()
             )
         }
     }
@@ -61,8 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     @Parcelize
     class State(
-        val name: String,
-        val pass: String
+        val name: String
     ) : Parcelable
 
     companion object {
