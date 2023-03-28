@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">CafeApp</string>
+    <string name="hello">Welcome to USSR</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="girl">animegirl</string>
+    <string name="hello_s_glad_to_see_you">Hello %s, glad to see you!</string>
+    <string name="tea">Tea</string>
+    <string name="coffee">Coffee</string>
+    <string name="what_s_else">What\'s else in your %s?</string>
+    <string name="sugar">Sugar</string>
+    <string name="milk">Milk</string>
+    <string name="lemon">Lemon</string>
+    <string name="choose_drink_type">Choose drink type</string>
+    <string name="supply">Supply</string>
+    <string name="error_fields_empty">Fill all input fields</string>
+
+    <array name="typesTea">
+        <item>Green</item>
+        <item>Black</item>
+    </array>
+
+    <array name="typesCoffee">
+        <item>Americano</item>
+        <item>Black</item>
+        <item>Espresso</item>
+        <item>Latte</item>
+    </array>
 </resources>
