@@ -1,10 +1,9 @@
 package ru.ms.stu.cafeapp
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.parcel.Parcelize
 import ru.ms.stu.cafeapp.databinding.ActivityMainBinding
 
@@ -14,26 +13,26 @@ class MainActivity : AppCompatActivity() {
     private lateinit var state: State
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
+        binding = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         init(savedInstanceState)
-        logIn()
+        logIn(savedInstanceState)
     }
 
     private fun init(savedInstanceState: Bundle?) {
         with(binding) {
             state = savedInstanceState?.getParcelable(KEY_STATE) ?: State(
-                name = username.toString().trim(),
-                pass =  password.toString().trim()
+                name = username.text.toString().trim(),
+                pass =  password.text.toString().trim()
             )
         }
     }
 
-    private fun logIn() {
+    private fun logIn(savedInstanceState: Bundle?) {
         with(binding) {
             entire.setOnClickListener {
+                init(savedInstanceState)
                 intent = SecondActivity.newIntent(this@MainActivity, state)
                 if (checkInput()) {
                     startActivity(intent)
@@ -67,8 +66,7 @@ class MainActivity : AppCompatActivity() {
     ) : Parcelable
 
     companion object {
-        @JvmStatic
-        private val KEY_STATE = "STATE"
+        @JvmStatic private val KEY_STATE = "STATE"
     }
 
 }
